@@ -3,7 +3,7 @@
     class="registration"
     method="POST"
     name="${pdict.profileForm.htmlName}">
- <!--Parte do nome -->
+    <!--Parte do nome -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-fname">
@@ -35,7 +35,7 @@
             <isprint value=${pdict.profileForm.customer.lastname.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-lname-error"></div>
     </div>
-
+  <!--Parte do Telefone -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.phone.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-phone">
@@ -53,7 +53,74 @@
             placeholder="${Resource.msg('example.phone','forms',null)}">
         <div class="invalid-feedback" id="form-phone-error"></div>
     </div>
+<!--Parte para CPF-->
+  <div class="form-group
+    <isif condition="${!!pdict.profileForm.customer.RAFAELCPF.mandatory === true}">required</isif>">
+        <label class="form-control-label" >
+            CPF
+        </label>
+        <input
+            type="number"
+            class="form-control"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"
+            <isprint value=${pdict.profileForm.customer.RAFAELCPF.attributes} encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+<!--Parte para CEP-->
+  <div class="form-group">
+        <label class="form-control-label" >
+            CEP
+        </label>
+        <input
+            type="number"
+            class="form-control"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"
+            >
+        <div class="invalid-feedback"></div>
+    </div>
+<!--Parte para Estado-->
+  <div class="form-group">
+        <label class="form-control-label" >
+            Estado
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"
+            >
+        <div class="invalid-feedback"></div>
+    </div>
+<!--Parte para Cidade-->
+  <div class="form-group">
+        <label class="form-control-label" >
+            Cidade
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"
+            >
+        <div class="invalid-feedback"></div>
+    </div>
+<!--Parte para Rua-->
+  <div class="form-group">
+        <label class="form-control-label" >
+            Rua
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"
+            >
+        <div class="invalid-feedback"></div>
+    </div>
 
+  <!--Parte do Email -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.email.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-email">
@@ -70,7 +137,7 @@
             <isprint value=${pdict.profileForm.customer.email.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-email-error"></div>
     </div>
-
+  <!--Parte da Confirmação do email -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.emailconfirm.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-email-confirm">
@@ -87,7 +154,8 @@
             <isprint value=${pdict.profileForm.customer.emailconfirm.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-email-confirm-error"></div>
     </div>
-
+  <!--Parte da Senha 
+  (padrao de Letra maiscula, minuscula, numero e caracter especial) -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.login.password.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-password">
@@ -104,7 +172,7 @@
             <isprint value=${pdict.profileForm.login.password.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-password-error"></div>
     </div>
-
+  <!--Parte da Confirmação da senha -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.login.passwordconfirm.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-password-confirm">
@@ -121,7 +189,7 @@
             <isprint value=${pdict.profileForm.login.passwordconfirm.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-password-confirm-error"></div>
     </div>
-
+  <!--Parte da caixa de confirmação de recebimento de email 
     <div class="form-group custom-control custom-checkbox">
         <input
             type="checkbox"
@@ -131,7 +199,7 @@
         <label class="custom-control-label" for="add-to-email-list">
             <isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" />
         </label>
-    </div>
+    </div> -->
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
 
