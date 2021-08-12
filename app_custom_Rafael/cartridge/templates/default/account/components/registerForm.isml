@@ -3,10 +3,11 @@
     class="registration"
     method="POST"
     name="${pdict.profileForm.htmlName}">
+ <!--Parte do nome -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-fname">
-            <isprint value="${pdict.profileForm.customer.firstname.label}" encoding="htmlcontent" />
+            Nome
         </label>
         <input
             type="text"
@@ -18,11 +19,11 @@
             <isprint value=${pdict.profileForm.customer.firstname.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-fname-error"></div>
     </div>
-
+  <!--Parte do Sobrenome -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.lastname.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-lname">
-            <isprint value="${pdict.profileForm.customer.lastname.label}" encoding="htmlcontent" />
+            Sobrenome
         </label>
         <input
             type="text"
