@@ -57,6 +57,7 @@
   <div class="form-group
     <isif condition="${!!pdict.profileForm.customer.RAFAELCPF.mandatory === true}">required</isif>">
         <label class="form-control-label" >
+        <isprint value="${pdict.profileForm.customer.RAFAELCPF.label}" encoding="htmlcontent" />
             CPF
         </label>
         <input
