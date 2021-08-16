@@ -218,6 +218,11 @@ server.post(
         var registrationFormObj = {
             firstName: registrationForm.customer.firstname.value,
             lastName: registrationForm.customer.lastname.value,
+            cpf: registrationForm.customer.RAFAELCPF.value,
+            cep: registrationForm.customer.RAFAELCEP.value,
+            state: registrationForm.customer.RAFAELState.value,
+            city: registrationForm.customer.RAFAELCity.value,
+            street: registrationForm.customer.RAFAELRoad.value,
             phone: registrationForm.customer.phone.value,
             email: registrationForm.customer.email.value,
             emailConfirm: registrationForm.customer.emailconfirm.value,
@@ -266,9 +271,13 @@ server.post(
 
                                 newCustomerProfile.firstName = registrationForm.firstName;
                                 newCustomerProfile.lastName = registrationForm.lastName;
-                                newCustomerProfile.RAFAELCPF = registrationForm.RAFAELCPF;
+                                newCustomerProfile.custom.RAFAELCPF = registrationForm.cpf;
                                 newCustomerProfile.phoneHome = registrationForm.phone;
                                 newCustomerProfile.email = registrationForm.email;
+                                newCustomerProfile.custom.RAFAELCEP = registrationForm.cep;
+                                newCustomerProfile.custom.RAFAELState = registrationForm.state;
+                                newCustomerProfile.custom.RAFAELCity = registrationForm.city;
+                                newCustomerProfile.custom.RAFAELRoad = registrationForm.street;
                             }
                         });
                     } catch (e) {

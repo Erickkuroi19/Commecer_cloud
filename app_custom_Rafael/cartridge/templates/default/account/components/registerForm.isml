@@ -35,6 +35,29 @@
             <isprint value=${pdict.profileForm.customer.lastname.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-lname-error"></div>
     </div>
+<!--Genero-->
+   <div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.gender.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-gender">
+            Gender
+        </label>
+        <select
+            class="form-control"
+            id="registration-form-gender"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.12orless','forms',null)}"
+            aria-describedby="form-fname-error">
+
+            <option value="1">male</option>
+            <option value="2">female</option>
+            <option value="3">Other</option>
+            <option value="0">undefined</option>
+
+        </select>
+
+        <div class="invalid-feedback" id="form-fname-error"></div>
+    </div> 
+
   <!--Parte do Telefone -->
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.phone.mandatory === true}">required</isif>">
@@ -56,17 +79,33 @@
 <!--Parte para CPF-->
   <div class="form-group
     <isif condition="${!!pdict.profileForm.customer.RAFAELCPF.mandatory === true}">required</isif>">
-        <label class="form-control-label" >
-        <isprint value="${pdict.profileForm.customer.RAFAELCPF.label}" encoding="htmlcontent" />
+        <label class="form-control-label" for="registration-form-RAFAELCPF" >
             CPF
         </label>
         <input
             type="number"
             class="form-control"
+            id="resgistration-form-RAFAELCPF"
             data-missing-error="${Resource.msg('error.message.required','forms',null)}"
             data-range-error="${Resource.msg('error.message.50orless','forms',null)}"
             <isprint value=${pdict.profileForm.customer.RAFAELCPF.attributes} encoding="off" />>
         <div class="invalid-feedback"></div>
+    </div>
+<!--Parte para aniversairo-->
+      <div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.birthday.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-birthday">
+            Birthday
+        </label>
+        <input
+            type="date"
+            class="form-control"
+            id="registration-form-birthday"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.12orless','forms',null)}"
+            aria-describedby="form-fname-error"
+            <isprint value=${pdict.profileForm.customer.birthday.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-fname-error"></div>
     </div>
 <!--Parte para CEP-->
   <div class="form-group">
