@@ -20,6 +20,8 @@ function validateEmail(email) {
     return regex.test(email);
 }
 
+
+
 /**
  * Account-Show : The Account-Show endpoint will render the shopper's account page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
  * @name Base/Account-Show
@@ -264,6 +266,7 @@ server.post(
 
                                 newCustomerProfile.firstName = registrationForm.firstName;
                                 newCustomerProfile.lastName = registrationForm.lastName;
+                                newCustomerProfile.RAFAELCPF = registrationForm.RAFAELCPF;
                                 newCustomerProfile.phoneHome = registrationForm.phone;
                                 newCustomerProfile.email = registrationForm.email;
                             }
@@ -351,6 +354,7 @@ server.get(
         profileForm.clear();
         profileForm.customer.firstname.value = accountModel.profile.firstName;
         profileForm.customer.lastname.value = accountModel.profile.lastName;
+        profileForm.customer.RAFAELCPF.value = accountModel.profile.RAFAELCPF;
         profileForm.customer.phone.value = accountModel.profile.phone;
         profileForm.customer.email.value = accountModel.profile.email;
         res.render('account/profile', {
@@ -416,6 +420,7 @@ server.post(
         var result = {
             firstName: profileForm.customer.firstname.value,
             lastName: profileForm.customer.lastname.value,
+            RAFAELCPF: profileForm.customer.RAFAELCPF.value,
             phone: profileForm.customer.phone.value,
             email: profileForm.customer.email.value,
             confirmEmail: profileForm.customer.emailconfirm.value,
@@ -459,6 +464,7 @@ server.post(
                     Transaction.wrap(function () {
                         profile.setFirstName(formInfo.firstName);
                         profile.setLastName(formInfo.lastName);
+                        profile.setRAFAELCPF(formInfo.RAFAELCPF);
                         profile.setEmail(formInfo.email);
                         profile.setPhoneHome(formInfo.phone);
                     });
@@ -855,3 +861,7 @@ server.get('Header', server.middleware.include, function (req, res, next) {
 });
 
 module.exports = server.exports();
+
+
+
+

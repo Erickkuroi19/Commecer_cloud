@@ -7,7 +7,7 @@
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-fname">
-            Nome
+            <isprint value="${pdict.profileForm.customer.firstname.label}" encoding="htmlcontent" />
         </label>
         <input
             type="text"
@@ -23,7 +23,7 @@
     <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.lastname.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-lname">
-            Sobrenome
+            <isprint value="${pdict.profileForm.customer.lastname.label}" encoding="htmlcontent" />
         </label>
         <input
             type="text"
@@ -74,6 +74,7 @@
             CEP
         </label>
         <input
+            id="cep"
             type="number"
             class="form-control"
             data-missing-error="${Resource.msg('error.message.required','forms',null)}"
@@ -87,6 +88,7 @@
             Estado
         </label>
         <input
+            id="estado"
             type="text"
             class="form-control"
             data-missing-error="${Resource.msg('error.message.required','forms',null)}"
@@ -100,6 +102,7 @@
             Cidade
         </label>
         <input
+            id="cidade"
             type="text"
             class="form-control"
             data-missing-error="${Resource.msg('error.message.required','forms',null)}"
@@ -113,6 +116,7 @@
             Rua
         </label>
         <input
+            id="rua"
             type="text"
             class="form-control"
             data-missing-error="${Resource.msg('error.message.required','forms',null)}"
@@ -213,4 +217,21 @@
             ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
         </a>
     </div>
+    <script>
+        function preencher(endereco){
+        document.getElementById('cidade').value=endereco.localidade;
+        document.getElementById('rua').value=endereco.logradouro;
+        document.getElementById('estado').value=endereco.uf;
+            }
+        async function pesquisar(){
+        const cep = document.getElementById('cep').value;
+        const url =  "https://viacep.com.br/ws/"+cep+"/json/";
+
+        const dados = await fetch(url);
+        const endereco = await dados.json();
+        preencher(endereco);
+        }
+        document.getElementById('cep')
+        .addEventListener('blur',pesquisar);
+    </script>
 </form>
