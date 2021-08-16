@@ -39,7 +39,7 @@
    <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.gender.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-gender">
-            Gender
+            Genero
         </label>
         <select
             class="form-control"
@@ -95,7 +95,7 @@
       <div class="form-group
         <isif condition="${!!pdict.profileForm.customer.birthday.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-birthday">
-            Birthday
+            Aniversairo
         </label>
         <input
             type="date"
